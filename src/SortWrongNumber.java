@@ -5,7 +5,7 @@ import java.util.Scanner;
  * 钥匙挂在大厅的墙上，钥匙上没有标号，每人随手拿一把钥匙
  * 用程序实现算出所有人都拿错钥匙的可能性有几种。
  */
-public class sortWrongNumber {
+public class SortWrongNumber {
 
     public static void main(String [] args) {
         Scanner input = new Scanner(System.in);
