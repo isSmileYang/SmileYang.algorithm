@@ -1,7 +1,6 @@
-
 import java.util.Scanner;
 
-public class existString {
+public class StringExist {
     public static void main(String [] args){
         //输入主串和子串
         Scanner input = new Scanner(System.in);
@@ -24,5 +23,5 @@ public class existString {
         }
         return false;
     }
-
 }
+
