@@ -7,7 +7,6 @@ import java.util.Scanner;
 //
 
 /**
- * smiple
  * 合并两个有序数组，这里是普通的重新排序,来自项目灵感
  */
 
