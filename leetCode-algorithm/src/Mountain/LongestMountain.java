@@ -1,5 +1,8 @@
 package Mountain;
 
+/**
+ * 乐其压轴笔试题：845数组中的最长山脉
+ */
 public class LongestMountain {
 
     public int longestMountain(int[] A) {
