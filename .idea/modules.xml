@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CoderYang.github.io.iml" filepath="$PROJECT_DIR$/CoderYang.github.io.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LeetCode_Basic/LeetCode_Basic.iml" filepath="$PROJECT_DIR$/LeetCode_Basic/LeetCode_Basic.iml" />
       <module fileurl="file://$PROJECT_DIR$/leetCode-algorithm/leetCode-algorithm.iml" filepath="$PROJECT_DIR$/leetCode-algorithm/leetCode-algorithm.iml" />
-      <module fileurl="file://$PROJECT_DIR$/leetCode-easy/leetcode_easy.iml" filepath="$PROJECT_DIR$/leetCode-easy/leetcode_easy.iml" />
     </modules>
   </component>
 </project>
