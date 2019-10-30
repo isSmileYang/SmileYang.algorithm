@@ -5,11 +5,14 @@ package BinarySearch;
  */
 
 public class OrderMatrixBS {
-    public boolean searchMatrix(int[][] matrix, int target) {
+    public static boolean searchMatrix(int[][] matrix, int target) {
+        // matrix.length表示行数;matrix[0].length表示列数
         int m = matrix.length;
+        int n = matrix[0].length;
+
         //注意防止空数组
         if (m == 0) return false;
-        int n = matrix[0].length;
+
         // 注意索引下标值
         int  start= 0, end = m * n - 1;
         int pivotIdx, pivotElement;
@@ -28,5 +31,13 @@ public class OrderMatrixBS {
             }
         }
         return false;
+    }
+
+    public static void main(String[] args) {
+        int[][]matrix =  {{1,3,5},{2,5,9},{6,8,12}};
+       //int[][]matrix = new int[3][3];是动态生成3*3的二维数组
+       int target = 5;
+        boolean result = searchMatrix(matrix,target);
+        System.out.println(result);
     }
 }
