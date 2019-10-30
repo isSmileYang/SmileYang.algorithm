@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
+ * leetcode74
  * 二维数组查找的普通解法，O(logN*M) ---matrix[M][N]
- * 二分查找方法空间复杂度更小，见leetCode-al
+ * 二分查找方法空间复杂度更小
  */
 public class MatrixSearch {
     public static  boolean searchMatrix(int[][] matrix, int target) {

@@ -1,5 +1,6 @@
 package BinarySearch;
 /**
+ * leetcode74
  * 二分查找搜索二维数组已知最快的方法了（内存消耗最少）
  * 空间复杂度O(1)时间复杂度O(log(n*m))
  */
@@ -16,11 +17,11 @@ public class OrderMatrixBS {
         // 注意索引下标值
         int  start= 0, end = m * n - 1;
         int pivotIdx, pivotElement;
-        //注意等于号！
+        //注意=
         while ( start <=end) {
             //不直接用相加/2是防止相加数太大会溢出
             pivotIdx = start +(end-start) / 2;
-            //二维数组的行数是index/n,列数是index%n
+            //把矩阵拆成了一个一维的有序数组，一维数组下标pivotIdx对应的pivotElement行数是index/n,列数是index%n
             pivotElement = matrix[pivotIdx / n][pivotIdx % n];
             //找到目标语句
             if (target == pivotElement) return true;
