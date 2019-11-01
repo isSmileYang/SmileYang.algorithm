@@ -1,7 +1,11 @@
 package Structure;
 
+/**
+ * 单向链表singly-linked List节点类
+ * 每个结点都由数据data和下一个结点指针next两部分组成
+ */
 public class ListNode {
-    public int val;
+    public int data;
     public ListNode next;
-    public ListNode(int x) { val = x; }
+    public ListNode(int x) { data = x; }
 }
