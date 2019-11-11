@@ -26,11 +26,10 @@ public class OrderMatrixBS {
             //找到目标语句
             if (target == pivotElement) return true;
                 //注意两个边界变换时都不包括中位数！
-            else {
-                if (target < pivotElement) end = pivotIdx - 1;
-                else start = pivotIdx + 1;
+            else if (target < pivotElement) end = pivotIdx - 1;
+            else start = pivotIdx + 1;
             }
-        }
+
         return false;
     }
 
