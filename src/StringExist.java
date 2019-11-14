@@ -13,14 +13,12 @@ public class StringExist {
     }
     //判断子串是否与主串的某段相等
     public static boolean jugdeExist(String mainString,String subString){
-        if (null!= mainString){
-            //
+        if (null== mainString)return false;
             String[] forArray = mainString.split(",");
-            for (String roleId : forArray) {
-                if(roleId.equals(subString))
+            for (String Id : forArray) {
+                if(Id.equals(subString))
                     return true;
             }
-        }
         return false;
     }
 }
