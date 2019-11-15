@@ -29,7 +29,7 @@ Json文件如何转C语言？
 2019/11/5
 写了一白天的codesys和一晚上的java小细节,源码不好读
 
-2019/11/13-15
+2019/11/13-15刷了6道贪心算法题
 通过MoonCake题学到了1.BufferedRead；2.内部类实现Comparable接口作为某对象参数的封装体；3.通过重写Comparable的compareTo方法自定义sort排序；4.贪心算法
 通过AssignCookie题巩固了贪心算法，学到了数组排序Array.sort()/
 通过isSubsequence题巩固了贪心算法，发现答案直接判断返回很有技巧
