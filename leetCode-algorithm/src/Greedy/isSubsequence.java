@@ -27,3 +27,6 @@ public class isSubsequence {
         return  sub==s.length();
     }
 }
+
+
+

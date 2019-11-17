@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-//
-
 /**
  * 合并两个有序数组，这里是普通的重新排序,来自项目灵感
  */

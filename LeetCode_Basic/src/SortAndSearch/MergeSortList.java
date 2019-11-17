@@ -8,21 +8,18 @@ import java.util.LinkedList;
 /**
  * 148.排序序链表----递归的归并排序解法，时间复杂度O(nlogn),空间是O（1）
  * 链表排序不需要额外空间！！！通常的归并排序需要copy一个栈来存数组，空间O(n)
- * 第一步：算出链表长度，取到中间节点（考虑奇数问题），打断链表
- * 第二步：合并有序链表（递归合并），每次只判断表头即可
  */
-
 public class MergeSortList {
-    //传入头结点指针
-    public static ListNode sortList(ListNode head) {
-        return head == null ? null : mergeSort(head);
-    }
-    //排序链表
+    /**
+     * 解题三部曲见题中注释
+     *  第一步注意取到中间节点（考虑奇数问题），第二步注意合并有序链表（递归合并），每次只判断表头即可
+     * @param head
+     */
     private static ListNode mergeSort(ListNode head) {
-        if (head.next == null) {
+        if (null==head ||null==head.next ) {
             return head;
         }
-        //
+        //step1:cut the list to 2 halves
         ListNode p = head, q = head, pre = null;
         while (q != null && q.next != null) {
             pre = p;
@@ -30,8 +27,11 @@ public class MergeSortList {
             q = q.next.next;
         }
         pre.next = null;
+
+        //step2:sort each half
         ListNode l = mergeSort(head);
         ListNode r = mergeSort(p);
+        //step3:merge l1 and l2
         return MergeSortList.merge(l, r);
     }
     //合并有序链表
@@ -57,6 +57,15 @@ public class MergeSortList {
             cur.next = r;
         }
         return dummyHead.next;
+    }
+
+    /**
+     * 以下纯测试，可省略。传入头结点指针
+     * @param head
+     * @return
+     */
+    public static ListNode sortList(ListNode head) {
+        return head == null ? null : mergeSort(head);
     }
     public static void main(String[] args) {
        LinkedList mylinklist = new LinkedList();

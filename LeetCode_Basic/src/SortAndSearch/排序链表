@@ -1,0 +1,116 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+ 解法一：保证了时间复杂度O(nlogn),空间是O（1），但是在leetcode测试结果如下：
+ Runtime: 10 ms, faster than 14.33% of Java online submissions for Sort List.
+ Memory Usage: 41.3 MB, less than 38.60% of Java online submissions for Sort List.
+ 解法二:反对票和支持票都最多，据说用了归并空间复杂度不是常数了，但是运行结果更好且通俗易懂
+ faster than 98% of Java online submissions for Sort List.
+ less than 90.60% of Java online submissions for Sort List.
+
+ 解法二：
+ class Solution {
+   public ListNode sortList(ListNode head) {
+     if (head == null || head.next == null)
+       return head;
+
+     // step 1. cut the list to two halves
+     ListNode prev = null, slow = head, fast = head;
+
+     while (fast != null && fast.next != null) {
+       prev = slow;
+       slow = slow.next;
+       fast = fast.next.next;
+     }
+
+     prev.next = null;
+
+     // step 2. sort each half
+     ListNode l1 = sortList(head);
+     ListNode l2 = sortList(slow);
+
+     // step 3. merge l1 and l2
+     return merge(l1, l2);
+   }
+
+   ListNode merge(ListNode l1, ListNode l2) {
+     ListNode l = new ListNode(0), p = l;
+
+     while (l1 != null && l2 != null) {
+       if (l1.val < l2.val) {
+         p.next = l1;
+         l1 = l1.next;
+       } else {
+         p.next = l2;
+         l2 = l2.next;
+       }
+       p = p.next;
+     }
+
+     if (l1 != null)
+       p.next = l1;
+
+     if (l2 != null)
+       p.next = l2;
+
+     return l.next;
+   }
+
+ }
+
+ 解法一：
+class Solution {
+  public ListNode sortList(ListNode head) {
+      ListNode dummy = new ListNode(0);
+    dummy.next = head;
+    ListNode [] list = new ListNode[2];
+    boolean done = (null == head);
+    // Keep partitioning our list into bigger sublists length. Starting with a size of 1 and doubling each time
+    for (int step = 1; !done; step *= 2) {
+      done = true;
+      ListNode prev = dummy;
+      ListNode remaining = prev.next;
+      do {
+        // Split off two sublists of size step
+        for (int i = 0; i < 2; ++i) {
+          list[i] = remaining;
+          ListNode tail = null;
+          for (int j = 0; j < step && null != remaining; ++j, remaining = remaining.next) {
+            tail = remaining;
+          }
+          // Terminate our sublist
+          if (null != tail) {
+            tail.next = null;
+          }
+        }
+
+        // We're done if these are the first two sublists in this pass and they
+        // encompass the entire primary list
+        done &= (null == remaining);
+
+        // If we have two sublists, merge them into one
+        if (null != list[1]) {
+          while (null != list[0] || null != list[1]) {
+            int idx = (null == list[1] || null != list[0] && list[0].val <= list[1].val) ? 0 : 1;
+            prev.next = list[idx];
+            list[idx] = list[idx].next;
+            prev = prev.next;
+          }
+
+          // Terminate our new sublist
+          prev.next = null;
+        } else {
+          // Only a single sublist, no need to merge, just attach to the end
+          prev.next = list[0];
+        }
+      } while (null != remaining);
+    }
+    return dummy.next;
+  }
+
+}
