@@ -3,3 +3,33 @@
 状态定义
 递推方程推导
 实现
+public static void main(String[] args) {
+        int[]arr = new int[]{5,6,8,2,7};
+        quickSort(arr,0,arr.length-1);
+        System.out.println(Arrays.toString(arr));
+    }
+
+    public static void quickSort(int[] arr, int lo, int hi) {
+        if (lo >= hi) return;
+        int p = partition(arr, lo, hi);
+        quickSort(arr, lo, p - 1);
+        quickSort(arr, p + 1, hi);
+    }
+
+    private static int partition(int[] arr, int lo, int hi) {
+        //int pivot = arr[lo + (arr[hi] - arr[lo]) / 2];
+        int pivot = arr[0];
+        int left = lo; int right = hi;
+        while (left <= right) {
+            while (arr[lo] < pivot) left++;
+            while (arr[hi] > pivot) right--;
+            if (left < right ) {
+                int t = arr[left];
+                hi = t;
+                lo = arr[right];
+            }
+        }
+        arr[lo]=arr[left];
+        arr[left]=pivot;
+        return lo;
+    }

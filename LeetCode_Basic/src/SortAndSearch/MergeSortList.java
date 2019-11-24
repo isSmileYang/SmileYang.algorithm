@@ -34,7 +34,7 @@ public class MergeSortList {
         //step3:merge l1 and l2
         return MergeSortList.merge(l, r);
     }
-    //合并有序链表
+    //合并左右两个子链表
     static ListNode merge(ListNode l, ListNode r) {
         ListNode dummyHead = new ListNode(0);
         ListNode cur = dummyHead;
