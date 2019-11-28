@@ -3,24 +3,19 @@ package SortAndSearch;
 import java.util.Arrays;
 
 public class QuickSort {
-    public static void main(String[] args) {
-        int[] arr = {1, 4, 5, 67, 2, 7, 8, 6, 9, 44};
-        quickSort(arr, 0, 9);
-        System.out.println(Arrays.toString(arr));
-    }
 
     /**
-     * 快速排序
+     * 双边循环快排
      * @param arr
-     * @param L   指向数组第一个元素
-     * @param R   指向数组最后一个元素
+     * @param L
+     * @param R
      */
     public static void quickSort(int[] arr, int L, int R) {
         int i = L;
         int j = R;
-        //注意支点取的中间值，双边循环
+
         int pivot = arr[(L + R) / 2];
-        //左右两端进行扫描，只要两端还没有交替，就一直扫描
+        //左右两端进行扫描，直到指针i和j相遇时退出主循环
         while (i <= j) {
             //寻找直到比支点大的数
             while (pivot > arr[i])
@@ -44,6 +39,12 @@ public class QuickSort {
         //“右边”再做排序，直到右边剩下一个数(递归出口)
         if (i < R)
             quickSort(arr, i, R);
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 4, 5, 67, 2, 7, 8, 6, 9, 44};
+        quickSort(arr, 0, 9);
+        System.out.println(Arrays.toString(arr));
     }
 }
 
