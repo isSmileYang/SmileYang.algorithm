@@ -16,7 +16,7 @@ public class isSubsequence {
         if(0==s.length()) return true;
         //母串序列索引i，子串j
         int sub = 0,j = 0;
-        //循环标准需要出现两个同时满足
+        //不能用for循环是考虑到s比t长
         while( sub<s.length()&&j< t.length()){
             //如果不同只有母串后移
             if(s.charAt(sub)==t.charAt(j))

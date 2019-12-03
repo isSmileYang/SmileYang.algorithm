@@ -23,8 +23,9 @@ public class GasStation {
                 result = i;
             }
             else
-                sum = gas[i]-cost[i];
+                sum += gas[i]-cost[i];
         }
+        //边界条件是能跑完全程
         return total>=0?result:-1;
     }
 }
