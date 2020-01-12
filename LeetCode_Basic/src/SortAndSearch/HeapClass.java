@@ -9,7 +9,6 @@ public class HeapClass {
             heapify(arr, i, len);
         }
     }
-
     public static void heapify(int[] arr, int i, int len) {
         //i节点的左右孩子
         int left = 2 * i + 1;
