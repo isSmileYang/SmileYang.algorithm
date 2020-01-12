@@ -6,8 +6,9 @@ import java.util.Scanner;
 
 public class Length_LIS {
     /**
-     * 思路：在大循环中记录每个数
-     * @param nums
+     *输入: [10,9,2,5,3,7,101,18]，输出: 4
+     * 解释: 最长的上升子序列是 [2,3,7,101]，它的长度是 4。
+     * 思路：用一个数组来存放上升序列，关键在于最后输出的是序列长度，所以保证长度而不需要时刻记录真正的子序和
      */
     public static int lengthOfLIS(int[] nums) {
         if(nums.length<2)return nums.length;
@@ -24,7 +25,7 @@ public class Length_LIS {
             else{
                 int left = 0,right =end;
                 while(left<right){
-                    int pivot = (left+ right)/2;
+                    int pivot = left+(right-left)/2;
                     if( LIS[pivot]< nums[i]){
                         left = pivot+1;
                     }
