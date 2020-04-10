@@ -1,16 +1,14 @@
 package Greedy;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Length_LIS {
     /**
      *输入: [10,9,2,5,3,7,101,18]，输出: 4
      * 解释: 最长的上升子序列是 [2,3,7,101]，它的长度是 4。
-     * 思路：用一个数组来存放上升序列，关键在于最后输出的是序列长度，所以保证长度而不需要时刻记录真正的子序和
+     * 思路：用一个数组来存放上升序列，关键在于最后输出的是序列长度，所以保证长度而不需要时刻记录真正的子序列
      */
-    public static int lengthOfLIS(int[] nums) {
+    public static int lengthOfLIS(int[]nums) {
         if(nums.length<2)return nums.length;
         int[]LIS = new int[nums.length];
         //数组有负整数的情况
