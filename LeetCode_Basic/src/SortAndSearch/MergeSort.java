@@ -7,43 +7,42 @@ import java.util.Arrays;
  */
 public class MergeSort {
     public static void main(String []args){
-        int []arr = {9,8,7,6,5,4,3,2,1};
-        sort(arr);
+        int []arr = {5,4,3,2,1,6,7,8,9};
+        mergeSort(arr,0, arr.length-1);
         System.out.println(Arrays.toString(arr));
     }
-    public static void sort(int []arr){
-        int []temp = new int[arr.length];//在排序前，先建好一个长度等于原数组长度的临时数组，避免递归中频繁开辟空间
-        sort(arr,0,arr.length-1,temp);
-    }
-    private static void sort(int[] arr,int left,int right,int []temp){
-        if(left<right){
-            int mid = (left+right)/2;
-            sort(arr,left,mid,temp);//左边归并排序，使得左子序列有序
-            sort(arr,mid+1,right,temp);//右边归并排序，使得右子序列有序
-            merge(arr,left,mid,right,temp);//将两个有序子数组合并操作
+    public static void mergeSort(int[] A, int p, int r) {
+        if (p < r) {
+            int q = (p + r) / 2;
+            mergeSort(A, p, q);
+            mergeSort(A, q + 1, r);
+            Merge(A, p, q, r);
         }
     }
-    private static void merge(int[] arr,int left,int mid,int right,int[] temp){
-        int i = left;//左序列指针
-        int j = mid+1;//右序列指针
-        int t = 0;//临时数组指针
-        while (i<=mid && j<=right){
-            if(arr[i]<=arr[j]){
-                temp[t++] = arr[i++];
-            }else {
-                temp[t++] = arr[j++];
+    //为了能够正常处理边界情况，在每个待Merge的数组的末尾添加了一个无穷大的哨兵。
+    public static void Merge(int[] A, int p, int q, int r) {
+        int n1 = q - p + 1;
+        int n2 = r - q;
+        int[] left = new int[n1 + 1];
+        int[] right = new int[n2 + 1];
+        for (int i = 0; i < n1; i++) {
+            left[i] = A[p + i];
+        }
+        left[n1] = Integer.MAX_VALUE;
+        for (int j = 0; j < n2; j++) {
+            right[j] = A[q + 1 + j];
+        }
+        right[n2] = Integer.MAX_VALUE;
+        int x = 0;
+        int y = 0;
+        for (int k = p; k <= r; k++) {
+            if (left[x] < right[y]) {
+                A[k] = left[x];
+                x++;
+            } else {
+                A[k] = right[y];
+                y++;
             }
-        }
-        while(i<=mid){//将左边剩余元素填充进temp中
-            temp[t++] = arr[i++];
-        }
-        while(j<=right){//将右序列剩余元素填充进temp中
-            temp[t++] = arr[j++];
-        }
-        t = 0;
-        //将temp中的元素全部拷贝到原数组中
-        while(left <= right){
-            arr[left++] = temp[t++];
         }
     }
 }
