@@ -38,18 +38,20 @@ public class MoonCake {
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
-        /* BufferedReader比Scanner快，因为Scanner对输入数据进行正则解析，而BufferedReader只是简单地读取字符序列。 */
+
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String[] in = br.readLine().split(" ");
         int N= Integer.parseInt(in[0]);
         int D = Integer.parseInt(in[1]);
-        String[] m = br.readLine().split(" "),  p = br.readLine().split(" ");
+        String[] nums = br.readLine().split(" "), colors = br.readLine().split(" ");
+
+
 
         /* 将每种月饼的库存，总价和单价都存入list */
        List<Cake> list = new ArrayList<>();
        for (int i = 0;i<N;i++) {
-           double memory = Double.parseDouble(m[i]);
-           double price = Double.parseDouble(p[i]);
+           double memory = Double.parseDouble(nums[i]);
+           double price = Double.parseDouble(colors[i]);
            list.add(new Cake(memory,price,price/memory));
         }
         /* 只有list中value进行了降序排列 */
