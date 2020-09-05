@@ -1,5 +1,8 @@
 //package OJTemplate;
 //
+//import java.io.BufferedReader;
+//import java.io.IOException;
+//import java.io.InputStreamReader;
 //import java.util.Scanner;
 //
 //public class input {
@@ -71,6 +74,26 @@
 //            }
 //            System.out.println(sum);
 //        }
+//    }
+//
+//    /**
+//     * BufferedReader 输入数据的高效写法
+//     * @param args
+//     * @throws IOException
+//     */
+//    public static void main(String[] args) throws IOException {
+//        // 常见写法
+////        Scanner scan = new Scanner(System.in);
+////        String str1 = scan.next();
+//
+//        // 高效写法
+//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//        String str = br.readLine();
+//
+//        // 后面就是字符分割 和 转换为数字了
+//        String[] split = str.split(",");
+//        int a = Integer.parseInt(split[0]);
+//
 //    }
 //
 //}
