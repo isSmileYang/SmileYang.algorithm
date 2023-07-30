@@ -1,4 +1,4 @@
-package Structure;
+package 链表;
 
 /**
  * 单向链表singly-linked List节点类
@@ -7,5 +7,5 @@ package Structure;
 public class ListNode {
     public int data;
     public ListNode next;
-    public ListNode(int x) { data = x; }
+    public ListNode(int val) { data = val; }
 }

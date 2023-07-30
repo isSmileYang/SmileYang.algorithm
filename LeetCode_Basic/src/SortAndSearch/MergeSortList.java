@@ -1,6 +1,6 @@
 package SortAndSearch;
 
-import Structure.ListNode;
+import 链表.ListNode;
 
 import java.util.LinkedList;
 

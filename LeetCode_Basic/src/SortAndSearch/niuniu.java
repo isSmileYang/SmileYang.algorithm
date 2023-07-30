@@ -7,7 +7,6 @@ public class niuniu {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int D = sc.nextInt();
         String aString = sc.nextLine();
         String bString = sc.nextLine();
         String[] astr = aString.split(",");

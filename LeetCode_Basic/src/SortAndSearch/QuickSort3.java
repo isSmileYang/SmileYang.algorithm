@@ -16,27 +16,27 @@ public class QuickSort3 {
     //先通过partition方法将切分元素index的左右子序列进行排序
     public static int partition(int[] arr,int lo,int hi){
         //取左位为基准元素,则先从右边开始对比
-        int key=arr[lo];
+        int pivot =arr[lo];
         //这里不用交换直接赋值
         while(lo<hi){
             //从序列右端开始，向左遍历，直到找到小于base的数
-            while(arr[hi]>=key && hi>lo){ hi--; }
+            while(arr[hi]>= pivot && hi>lo){ hi--; }
             arr[lo]=arr[hi]; //找到了比base小的元素，放到最左边
             //从序列左端开始，向右遍历，直到找到大于base的数
-            while(arr[lo]<=key && hi>lo){ lo++; }
+            while(arr[lo]<= pivot && hi>lo){ lo++; }
             arr[hi]=arr[lo]; //找到了比base大的元素，放到最右边
         }
-        arr[lo]=key;//将备份的切分元素放回左右子序列之间
+        arr[lo]= pivot;//将备份的切分元素放回左右子序列之间
         return lo; // 此时lo=hi，切分元素给arr[lo]和arr[hi]一样
 
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[50];
-        for (int i = 49; i >=0; i++) {
-            arr[i] = i;
-            quickSort(arr,0,arr.length);
-        }
+        int[] arr = {5,2,2,1,0,0};
+//        for (int i = 49; i >=0; i++) {
+//            arr[i] = i;
+//            quickSort(arr,0,arr.length);
+//        }
         quickSort(arr,0,arr.length-1);
         System.out.println(Arrays.toString(arr));
     }

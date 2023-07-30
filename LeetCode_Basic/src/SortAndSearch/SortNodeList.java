@@ -1,7 +1,7 @@
 package SortAndSearch;
 
 
-import Structure.ListNode;
+import 链表.ListNode;
 
 /**
  * 排序链表
