@@ -7,42 +7,41 @@ import java.util.Arrays;
  */
 public class MergeSort {
     public static void main(String []args){
-        int []arr = {5,4,3,2,1,6,7,8,9};
+        int[] arr = {5,4,3,2,1,6,7,8,9};
         mergeSort(arr,0, arr.length-1);
         System.out.println(Arrays.toString(arr));
     }
-    public static void mergeSort(int[] A, int p, int r) {
-        if (p < r) {
-            int q = (p + r) / 2;
-            mergeSort(A, p, q);
-            mergeSort(A, q + 1, r);
-            Merge(A, p, q, r);
+    public static void mergeSort(int[] arr, int start, int end) {
+        if (start < end) {
+            int q = (start + end) / 2;
+            mergeSort(arr, start, q);
+            mergeSort(arr, q + 1, end);
+            merge(arr, start, q, end);
         }
     }
     //为了能够正常处理边界情况，在每个待Merge的数组的末尾添加了一个无穷大的哨兵。
-    public static void Merge(int[] A, int p, int q, int r) {
-        int n1 = q - p + 1;
-        int n2 = r - q;
-        int[] left = new int[n1 + 1];
-        int[] right = new int[n2 + 1];
-        for (int i = 0; i < n1; i++) {
-            left[i] = A[p + i];
-        }
-        left[n1] = Integer.MAX_VALUE;
-        for (int j = 0; j < n2; j++) {
-            right[j] = A[q + 1 + j];
-        }
-        right[n2] = Integer.MAX_VALUE;
-        int x = 0;
-        int y = 0;
-        for (int k = p; k <= r; k++) {
-            if (left[x] < right[y]) {
-                A[k] = left[x];
-                x++;
-            } else {
-                A[k] = right[y];
-                y++;
+    public static void merge(int[] arr, int start, int mid, int end) {
+        //用临时数组temp组装合并的数组
+        int[] temp = new int[end - start + 1];
+        int i = start;
+        int j = mid + 1;
+        int t = 0; //t指针指向temp的初始位置
+        while( i<= mid && j <= end){
+            if(arr[i] <= arr[j]){
+                temp[t++] = arr[i++];
+            }else{
+                temp[t++] = arr[j++];
             }
+        }
+        while(i <= mid){
+            temp[t++] = arr[i++];
+        }
+        while(j <= end){
+            temp[t++] = arr[j++];
+        }
+        for(int p = 0; p < temp.length; p++){
+            arr[start + p] = temp[p];
+
         }
     }
 }
