@@ -1,4 +1,4 @@
-package StackTest;
+package StackAndQueue;
 
 import java.util.Random;
 import java.util.Stack;

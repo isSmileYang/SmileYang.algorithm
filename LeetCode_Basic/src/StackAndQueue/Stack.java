@@ -1,4 +1,4 @@
-package StackTest;
+package StackAndQueue;
 
 public interface Stack<E> {
     void getSize(E e);
