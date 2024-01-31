@@ -33,12 +33,9 @@ public class M206_ReverseList_Iterator {
 
     static <T> ListNode<T> iteratorReverse(ListNode<T> head) {
         // 思路：遍历链表，先缓存next，再重置next
-        if (Objects.isNull(head)) {
-            return null;
-        }
         ListNode<T> current = head;
         ListNode<T> prev = null;
-        while (Objects.nonNull(current.getNext())) {
+        while (Objects.nonNull(current)) {
             ListNode<T> next = current.getNext();
             current.setNext(prev);
             // prev 设置为当前node
